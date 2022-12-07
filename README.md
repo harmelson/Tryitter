@@ -41,32 +41,26 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 
 <details>
-  <summary><strong>[EM CONSTRUÇÃO] Rodando no Docker vs Localmente</strong></summary><br />
+  <summary><strong>[Adicionar comando do EF] Rodando no Docker</strong></summary><br />
 
   A aplicação foi pensada para ser testada com o Docker.
   
-  Se sua opção for por usar esta ferramenta ou diretamente em sua máquina, considere as orientações abaixo.
-
-  ## Com Docker
+  Veja as orientações abaixo para iniciar a execução do projeto.
 
   > Rode o serviço com o comando `docker-compose up -d`.
-  - Esse serviço irá inicializar um container chamado `tryitter_project`.
-  - A partir daqui você pode rodar o container `tryitter_project` via CLI ou abri-lo no VS Code.
+  - Esse serviço irá inicializar um container chamado `tryitter`.
+  - A partir daqui você pode rodar o container `tryitter` via CLI ou abri-lo no VS Code.
 
-  > Use o comando `docker exec -it tryitter_project bash`.
+  > Use o comando `docker exec -it tryitter bash`.
   - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
 
   > Instale as dependências com `dotnet restore`.
 
 ---
   
-  ## Sem Docker
-  
-  > Instale as dependências com `dotnet restore`
-  
   ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o ambiente `.NET` instalado em seu computador.
 
-  ✨ **Dica:** Verifique se as portas (colocar as portas do banco e da API) estão disponíveis no seu computador.
+  ✨ **Dica:** Verifique se as portas 1433 (para execução do banco de dados), 5288 e 7027 (para execução da API) estão disponíveis no seu computador.
 
 ---
 
@@ -75,7 +69,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
   > Use os comandos `(comandos para iniciar o EF)` para utilizar o banco de dados.
   - Eles inicializam e populam o banco de dados desenvolvido com a ORM Entity Framework.
 
-  > Inicie a aplicação com os comandos `dotnet run` ou `similar`.
+  > Inicie a aplicação com os comandos `dotnet run`.
   - Para executar a aplicação em sua plataforma de cliente da API.
 
 ---
@@ -85,20 +79,16 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 
 <details>
-  <summary><strong>[EM CONSTRUÇÃO] Linter</strong></summary><br />
+  <summary><strong>Linter</strong></summary><br />
 
-  Foi utilizado o (pesquisar software de lint)[ESLint](https://eslint.org/) para fazer a análise estática do código.
+  Foi utilizado o [Roslyn Analyzer](https://learn.microsoft.com/pt-br/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2022) para fazer a análise estática do código visando garantir as boas práticas e legibilidade do código.
 
-  Este projeto já vem com as dependências relacionadas ao _linter_ configuradas no arquivos `package.json`.
-
-  Caso queira utilizar o `ESLint` durante a execução do projeto, use o comando `npm install` dentro do projeto e depois `npm run lint`. Se a análise do `ESLint` encontrar problemas no seu código, tais problemas serão mostrados no seu terminal. Se não houver problema no seu código, nada será impresso no seu terminal.
-
-  Você também pode instalar o plugin do `ESLint` no `VSCode`: bastar ir em _extensions_ e baixar o [plugin `ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+  Você também pode instalar as configurações no seu editor de texto para contribuições no nosso projeto.
 </details>
 
 
 <details>
-  <summary><strong> Testes [Em desenvolvimento]</strong></summary><br />
+  <summary><strong>Testes</strong></summary><br />
 
   Serão utilizadas as bibliotecas _xUnit_ e _FluentAssertions_ para desenvolvimento dos testes da aplicação. 
 
@@ -109,7 +99,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 </details>
 
 <details>
-  <summary  id="diagrama"><strong>[EM CONSTRUÇÃO] Diagrama ER e Entidades</strong></summary>
+  <summary  id="diagrama"><strong>Diagrama ER e Entidades</strong></summary>
 
   ## Diagrama de Entidade-Relacionamento
 
@@ -176,7 +166,7 @@ Em construção
 <details>
   <summary><strong> Mande seu feedback sobre o projeto!</strong></summary><br />
 
-Se estiver a vontade, clone o repositório e, seja com ou sem o Docker, execute, veja o deploy e nos ajude a melhorar este projeto! Seu feedback será super bem vindo!
+Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude a melhorar este projeto! Seu feedback será super bem vindo!
 
 
 </details>
