@@ -8,7 +8,7 @@ public class MyContext : DbContext
 
     // Adicionando models como DbSet
     public DbSet<Post> Posts { get; set; } = null!;
-    public DbSet<Post> PostUser { get; set; } = null!;
+    public DbSet<Post> PostUsers { get; set; } = null!;
     public DbSet<User> Users { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,5 +22,18 @@ public class MyContext : DbContext
             // Executamos o método UseSqlServer e passamos a connection string a ele
             optionsBuilder.UseSqlServer(connectionString);
         }
+    }
+
+    protected override void OnModelCreating(ModelBuilder mb)
+    {
+        mb.Entity<PostUser>()
+            .HasMany(p => p.Post) 
+            .WithOne(u => u.PostUsers)
+            .HasForeignKey(p => p.IdPost);
+
+        mb.Entity<PostUser>()
+            .HasOne(u => u.User) 
+            .WithMany(p => p.PostUsers)
+            .HasForeignKey(u => u.IdUser);
     }
 }
