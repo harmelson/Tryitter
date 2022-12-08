@@ -4,8 +4,8 @@ namespace Tryitter.Models {
   {
     [Key]
     public int IdUser { get; set; }
-    public string EmailUser  { get; set; }
-    public string NameUser  { get; set; }
-    public string Password  { get; set; }
+    public string EmailUser  { get; set; } = null!;
+    public string NameUser  { get; set; } = null!;
+    public string Password  { get; set; } = null!;
   }
 }
