@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Tryitter.Models;
 
 namespace Tryitter.Repository;
 public class MyContext : DbContext
 {
     public MyContext(DbContextOptions<MyContext> options) : base(options) {}
+    public DbSet<Post> Posts { get; set; } = null!;
+    public DbSet<Post> PostUser { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
