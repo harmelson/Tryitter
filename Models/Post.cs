@@ -4,7 +4,7 @@ namespace Tryitter.Models {
   {
     [Key]
     public int IdPost { get; set; }
-    public string MessagePost  { get; set; }
+    public string MessagePost  { get; set; } = null!;
     public int LikesPost  { get; set; }
     public int SharesPost  { get; set; }
   }
