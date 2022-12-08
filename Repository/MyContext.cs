@@ -5,6 +5,8 @@ namespace Tryitter.Repository;
 public class MyContext : DbContext
 {
     public MyContext(DbContextOptions<MyContext> options) : base(options) {}
+
+    // Adicionando models como DbSet
     public DbSet<Post> Posts { get; set; } = null!;
     public DbSet<Post> PostUser { get; set; } = null!;
     public DbSet<User> Users { get; set; } = null!;
