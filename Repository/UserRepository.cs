@@ -51,5 +51,16 @@ namespace Tryitter.Repository
 
       return user;
     }
+
+    public void DeleteUser(int userId)
+    {
+      var user = _context.Users.FirstOrDefault(u => u.IdUser == userId);
+
+      if (user != null)
+      {
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+      }
+    }
   }
 }
