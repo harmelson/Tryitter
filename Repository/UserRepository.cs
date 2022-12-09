@@ -11,6 +11,19 @@ namespace Tryitter.Repository
       _context = context;
     }
 
+    public bool LoginUser(UserDTO user)
+    {
+      var findUser = _context.Users.FirstOrDefault(
+        u => u.EmailUser == user.EmailUser && u.Password == user.Password
+      );
+
+      if (findUser != null)
+      {
+        return true;
+      }
+
+      return false;
+    }
     public User AddUser(User user)
     {
       _context.Users.Add(user);
