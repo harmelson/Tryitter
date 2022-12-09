@@ -13,4 +13,10 @@ namespace Tryitter.Models
     [InverseProperty("User"), JsonIgnore]
     public ICollection<PostUser>? PostUsers  { get; set; } = null!;
   }
+
+  public class UserDTO
+  {
+    public string EmailUser  { get; set; } = null!;
+    public string Password  { get; set; } = null!;
+  }
 }
