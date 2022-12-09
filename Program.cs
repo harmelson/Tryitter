@@ -13,6 +13,8 @@ builder.Services.AddControllers()
                 .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddMvcCore();                
 builder.Services.AddDbContext<MyContext>();
+builder.Services.AddScoped<MyContext>();
+builder.Services.AddScoped<UserRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
