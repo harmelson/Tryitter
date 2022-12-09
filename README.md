@@ -2,7 +2,7 @@
 
 Para executar o projeto, observe as orientações descritas a seguir, e se tiver qualquer dúvida, sugestão, contribuição, considere abrir uma issue ou entrar em contato conosco. 🚀
 
-Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvido o projeto deste repositório.
+Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvido o nosso Tryitter.
 
 
 
@@ -13,9 +13,9 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 <details>
   <summary><strong> Desenvolvimento</strong></summary><br />
 
-  Este projeto foi desenvolvido para o Projeto Final da Aceleração de C# da Trybe em parceria com a XP, onde foi escolhido o Tema 1. 
+  Este projeto foi desenvolvido para o Desafio Final da Aceleração de C# da Trybe em parceria com a XP, onde foi escolhido o Tema 1, descrito na sessão Contextualizando abaixo. 
   
-  Trata-se e uma API REST desenvovida com C#, SQL Server e Azure, utilizando o Entity Framework (EF) e o JWT Authenticator. Também foi adotada a arquitetura MVC, buscando implementar os princípios Restful. Todas essas ferramentas introduzidas durante o curso da Trybe.
+  Trata-se de uma API REST desenvovida com C#, SQL Server e Azure, utilizando o Entity Framework (EF) e o JWT Authenticator. Também foi adotada a arquitetura MVC, buscando implementar os princípios Restful. Todas essas ferramentas introduzidas durante o curso da Trybe.
   
   O objetivo da aplicação desenvolvida é simular uma rede social, com um CRUD da pessoa estudante e dos seus posts.
   
@@ -29,8 +29,9 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 <details>
   <summary><strong> Período de entrega</strong></summary><br />
   
-  * Este projeto foi desenvolvido por Calili dos Santos Silva e Gabriel Harmel (colocar nossos links do Github)
-  * Seu prazo de entrega foi o dia: `13/12/2022 23:59`
+  * Este projeto foi desenvolvido por [Calili dos Santos Silva](https://github.com/calilisantos) e [Gabriel Harmel](https://github.com/harmelson).
+
+  * Seu prazo de entrega foi o dia: `14/12/2022 23:59`
 
 </details>
 
@@ -58,7 +59,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 ---
   
-  ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o ambiente `.NET` instalado em seu computador.
+  ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o ambiente `.NET` na versão 6.0.0 ou superior instalado em seu computador.
 
   ✨ **Dica:** Verifique se as portas 1433 (para execução do banco de dados), 5288 e 7027 (para execução da API) estão disponíveis no seu computador.
 
@@ -83,7 +84,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
   Foi utilizado o [Roslyn Analyzer](https://learn.microsoft.com/pt-br/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2022) para fazer a análise estática do código visando garantir as boas práticas e legibilidade do código.
 
-  Você também pode instalar as configurações no seu editor de texto para contribuições no nosso projeto.
+  Considere instalar as configurações no seu editor de texto para contribuições no nosso projeto.
 </details>
 
 
@@ -132,6 +133,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
     ```json
     {
+      "idPostUser": 1, 
       "idUser": 1, // Chave primária e estrangeira, referenciando o id de `Users`
       "idPost": 1, // Chave primária e estrangeira, referenciando o id de `Posts`
     }
@@ -186,7 +188,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 
   Com a nossa API é permitido se cadastrar, consultar atualizar e deletar seus dados, além de  criar, consultar, atualizar e deletar os seus posts, e visualizar e interagir com os das outras pessoas estudantes.
 
-  Sejam desenvolvedores, profissionais de tecnologia e de quaisquer áreas, estamos juntos _~~nos seus bugs~~_ na sua jornada pela Trybe e tecnologia.
+  Sejam desenvolvedores, profissionais de tecnologia e de quaisquer áreas, estamos juntos nos seus bugs na sua jornada pela Tryitter.
   
 </details>
 
@@ -246,10 +248,12 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 ### - Através do endpoint PUT `/user/{id}`
 
 - O endpoint é acessível através do URL `/user/{id}`;
-- O endpoint deve ser capaz de atualizar os campos da pessoa usuária com o status http `201`;
+- O endpoint deve ser capaz de atualizar os dados da pessoa usuária com sucesso, retornando o status http `200`;
 - O corpo da requisição segue o formato abaixo:
   ```json
   {
+    "emailUser": "csbetterthanjava.net.com",
+    "nameUser": "Bill G.",
     "password": "isnosecret",
   }
   ```
@@ -314,7 +318,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 ### - Através do endpoint DELETE `/user/{id}`
 
 - O endpoint é acessível através do URL `/user/{id}`;
-- O endpoint retorna o status http `204`;
+- O endpoint retorna o status http `200`;
 - O corpo da resposta tem o formato abaixo:
   ```json
     {
@@ -360,7 +364,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `messagePost` tenha menos de 1 ou mais de 280 caracteres,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "message post must have at last 1 and less than 280 characteres"
+      "message": "message post must have at least 1 and less than 280 characteres"
     }
     ```
 
@@ -402,7 +406,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `messagePost` tenha menos de 1 ou mais de 280 caracteres,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "message post must have at last 1 and less than 280 characteres"
+      "message": "message post must have at least 1 and less than 280 characteres"
     }
     ```
 
