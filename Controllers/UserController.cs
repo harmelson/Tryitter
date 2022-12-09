@@ -67,9 +67,11 @@ namespace Tryitter.Controllers
     [Authorize]
     public ActionResult Delete(int id)
     {
-      _repository.DeleteUser(id);
-     
-      return Ok(new { message= "Removed user"});
+      bool isDeleted = _repository.DeleteUser(id);
+
+      if (!isDeleted) return NotFound("user not found");
+      
+      return Ok(new { message= "user deleted"});
     }
   }
 }
