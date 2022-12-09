@@ -57,8 +57,16 @@ namespace Tryitter.Controllers
       var user = _repository.GetUser(id);
 
       if (user == null) return NotFound("user not found");
-      
+
       return Ok(user);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+      _repository.DeleteUser(id);
+     
+      return Ok(new { message= "Removed user"});
     }
   }
 }
