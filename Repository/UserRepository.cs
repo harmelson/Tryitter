@@ -42,5 +42,14 @@ namespace Tryitter.Repository
         Password = user.Password,
       };
     }
+
+    public User GetUser(int userId)
+    {
+      var user = _context.Users.FirstOrDefault(u => u.IdUser == userId);
+
+      if (user == null) return null!;
+
+      return user;
+    }
   }
 }
