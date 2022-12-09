@@ -228,14 +228,14 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `nameUser` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"nameUser\" must have 8 or less characters"
+      "message": "\"nameUser\" must have at least 8 characters"
     }
     ```
 
   - Caso o campo `password` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"password\" must have 8 or less characters"
+      "message": "\"password\" must have at least 8 characters"
     }
     ```
 
@@ -268,14 +268,14 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `nameUser` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"nameUser\" must have 8 or less characters"
+      "message": "\"nameUser\" must have at least 8 characters"
     }
     ```
 
   - Caso o campo `password` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"password\" must have 8 or less characters"
+      "message": "\"password\" must have at least 8 characters"
     }
     ```
 
