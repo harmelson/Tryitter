@@ -41,7 +41,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 
 <details>
-  <summary><strong>[Adicionar comando do EF] Rodando no Docker</strong></summary><br />
+  <summary><strong>Rodando no Docker</strong></summary><br />
 
   A aplicação foi pensada para ser testada com o Docker.
   
@@ -228,14 +228,14 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `nameUser` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"nameUser\" must have 8 or less characters"
+      "message": "\"nameUser\" must have at least 8 characters"
     }
     ```
 
   - Caso o campo `password` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"password\" must have 8 or less characters"
+      "message": "\"password\" must have at least 8 characters"
     }
     ```
 
@@ -268,14 +268,14 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   - Caso o campo `nameUser` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"nameUser\" must have 8 or less characters"
+      "message": "\"nameUser\" must have at least 8 characters"
     }
     ```
 
   - Caso o campo `password` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
     {
-      "message": "\"password\" must have 8 or less characters"
+      "message": "\"password\" must have at least 8 characters"
     }
     ```
 
@@ -295,6 +295,19 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
     "password": "secret",
   }
   ```
+
+<details>
+  <summary><strong> Validações </strong></summary>
+
+  * **[Será validado que não é possível consultar um usuário não encontrado]**
+  - Caso o id da pessoa usuária informado não seja encontrado,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
+    ```json
+    {
+      "message": "user not found"
+    }
+    ```
+
+</details>
 
 ---
 
@@ -442,19 +455,11 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 <details>
   <summary><strong> Validações </strong></summary>
 
-  * **[Será validado que não é possível logar uma pessoa não cadastrada no banco]**
-  - Caso a pessoa não esteja cadastrada no banco o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
+  * **[Será validado que não é possível logar uma pessoa com o email ou senha errados]**
+  - Caso o campo `password` não corresponda ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
     ```json
     {
-      "message": "\"emailUser\" is not found"
-    }
-    ```
-
-  * **[Será validado que não é possível logar uma pessoa com a senha não correspondente]**
-  - Caso o campo `password` não corresponda ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `403`:
-    ```json
-    {
-      "message": "\"password\" is wrong"
+      "message": "\"email\" or \"password\" is wrong"
     }
     ```
 </details>
