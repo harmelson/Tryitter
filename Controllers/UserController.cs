@@ -18,7 +18,7 @@ namespace Tryitter.Controllers
 
     [HttpPost]
     [AllowAnonymous]
-    public IActionResult Add([FromBody] User user)
+    public ActionResult Add([FromBody] User user)
     {
       Regex regex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
       if (user.EmailUser == null || user.NameUser == null || user.Password == null)
@@ -35,7 +35,8 @@ namespace Tryitter.Controllers
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update([FromBody] User user, int id)
+    [Authorize]
+    public ActionResult Update([FromBody] User user, int id)
     {
       Regex regex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
       if (user.EmailUser == null || user.NameUser == null || user.Password == null)
@@ -52,7 +53,8 @@ namespace Tryitter.Controllers
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    [Authorize]
+    public ActionResult GetById(int id)
     {
       var user = _repository.GetUser(id);
 
@@ -62,7 +64,8 @@ namespace Tryitter.Controllers
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    [Authorize]
+    public ActionResult Delete(int id)
     {
       _repository.DeleteUser(id);
      
