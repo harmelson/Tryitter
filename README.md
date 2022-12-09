@@ -296,6 +296,19 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   }
   ```
 
+<details>
+  <summary><strong> Validações </strong></summary>
+
+  * **[Será validado que não é possível consultar um usuário não encontrado]**
+  - Caso o id da pessoa usuária informado não seja encontrado,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
+    ```json
+    {
+      "message": "user not found"
+    }
+    ```
+
+</details>
+
 ---
 
 ### - Através do endpoint DELETE `/user/{id}`
@@ -442,19 +455,11 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 <details>
   <summary><strong> Validações </strong></summary>
 
-  * **[Será validado que não é possível logar uma pessoa não cadastrada no banco]**
-  - Caso a pessoa não esteja cadastrada no banco o resultado retornado deverá ser conforme exibido abaixo, com um status http `404`:
+  * **[Será validado que não é possível logar uma pessoa com o email ou senha errados]**
+  - Caso o campo `password` não corresponda ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
     ```json
     {
-      "message": "\"emailUser\" is not found"
-    }
-    ```
-
-  * **[Será validado que não é possível logar uma pessoa com a senha não correspondente]**
-  - Caso o campo `password` não corresponda ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `403`:
-    ```json
-    {
-      "message": "\"password\" is wrong"
+      "message": "\"email\" or \"password\" is wrong"
     }
     ```
 </details>
