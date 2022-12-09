@@ -41,7 +41,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 
 <details>
-  <summary><strong>[Adicionar comando do EF] Rodando no Docker</strong></summary><br />
+  <summary><strong>Rodando no Docker</strong></summary><br />
 
   A aplicação foi pensada para ser testada com o Docker.
   
@@ -66,7 +66,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
   ## Após a instalação das dependências
 
-  > Use os comandos `(comandos para iniciar o EF)` para utilizar o banco de dados.
+  > Use os comandos `dotnet ef database update` para iniciar o banco de dados.
   - Eles inicializam e populam o banco de dados desenvolvido com a ORM Entity Framework.
 
   > Inicie a aplicação com os comandos `dotnet run`.
