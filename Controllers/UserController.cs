@@ -50,5 +50,15 @@ namespace Tryitter.Controllers
 
       return Ok(_repository.UpdateUser(user, id));
     }
+
+    [HttpGet("{id}")]
+    public IActionResult GetById(int id)
+    {
+      var user = _repository.GetUser(id);
+
+      if (user == null) return NotFound("user not found");
+      
+      return Ok(user);
+    }
   }
 }
