@@ -67,11 +67,13 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
   ## Após a instalação das dependências
 
-  > Use os comandos `dotnet ef database update` para iniciar o banco de dados.
-  - Eles inicializam e populam o banco de dados desenvolvido com a ORM Entity Framework.
+  > Use os comandos `dotnet ef database update` para iniciar nosso banco de dados.
+  - Ele inicializa e popula o banco de dados desenvolvido com a ORM Entity Framework. 
+  Consulte o arquivo `docker-compose` para consultar as entradas para conexão de sua interface de banco de dados SQLServer. Recomendamos o `Azure Data Studio`.
 
   > Inicie a aplicação com os comandos `dotnet run`.
-  - Para executar a aplicação em sua plataforma de cliente da API.
+  - Para executar a aplicação em sua plataforma de cliente da API ou explorá-la no Swagger na seguinte rota:
+    `https://localhost:7027/swagger/index.html`
 
 ---
 
