@@ -261,6 +261,14 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 <details>
   <summary><strong> Validações </strong></summary>
 
+  * **[Será validado que não é possível criar uma pessoa usuária sem todas as informações necessárias]**
+  - Caso um dos campos da requisição não seja informado,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
+    ```json
+    {
+      "message": "All fields must be passed"
+    }
+    ```
+
   * **[Será validado que não é possível atualizar os campos da pessoa usuária sem a(s) informação(ções) válida(s)]**
   - Caso o campo `emailUser` não tenha um formato válido, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
     ```json
@@ -460,12 +468,43 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
   <summary><strong> Validações </strong></summary>
 
   * **[Será validado que não é possível logar uma pessoa com o email ou senha errados]**
-  - Caso o campo `password` não corresponda ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
+  - Caso o campo `email` e `password` não correspondam ao cadastrado no banco para o email informado, o resultado retornado deverá ser conforme exibido abaixo, com um status http `401`:
     ```json
     {
       "message": "\"email\" or \"password\" is wrong"
     }
     ```
+
+  * **[Será validado que não é possível criar uma pessoa usuária sem todas as informações necessárias]**
+  - Caso um dos campos da requisição não seja informado,  o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
+    ```json
+    {
+      "message": "All fields must be passed"
+    }
+    ```
+
+  * **[Será validado que não é possível atualizar os campos da pessoa usuária sem a(s) informação(ções) válida(s)]**
+  - Caso o campo `emailUser` não tenha um formato válido, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
+    ```json
+    {
+      "message": "\"emailUser\" must be valid"
+    }
+    ```
+
+  - Caso o campo `nameUser` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
+    ```json
+    {
+      "message": "\"nameUser\" must have at least 8 characters"
+    }
+    ```
+
+  - Caso o campo `password` não tenha 8 ou mais caracteres, o resultado retornado deverá ser conforme exibido abaixo, com um status http `400`:
+    ```json
+    {
+      "message": "\"password\" must have at least 8 characters"
+    }
+    ```
+
 </details>
 
 ---
