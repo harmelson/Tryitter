@@ -21,7 +21,8 @@ namespace Tryitter.Controllers
     public ActionResult Add([FromBody] User user)
     {
       Regex regex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-      if (user.EmailUser == null || user.NameUser == null || user.Password == null)
+
+      if (user.EmailUser == "" || user.NameUser == "" || user.Password == "")
       {
         return BadRequest("All fields must be passed");
       }
@@ -39,7 +40,8 @@ namespace Tryitter.Controllers
     public ActionResult Update([FromBody] User user, int id)
     {
       Regex regex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-      if (user.EmailUser == null || user.NameUser == null || user.Password == null)
+
+      if (user.EmailUser == "" || user.NameUser == "" || user.Password == "")
       {
         return BadRequest("All fields must be passed");
       }
