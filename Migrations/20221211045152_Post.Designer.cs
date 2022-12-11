@@ -11,8 +11,8 @@ using Tryitter.Repository;
 namespace Tryitter.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221209161511_PostUsers")]
-    partial class PostUsers
+    [Migration("20221211045152_Post")]
+    partial class Post
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,21 +47,13 @@ namespace Tryitter.Migrations
 
             modelBuilder.Entity("Tryitter.Models.PostUser", b =>
                 {
-                    b.Property<int>("IdPostUser")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("IdUser")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPostUser"));
 
                     b.Property<int>("IdPost")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdPostUser");
-
-                    b.HasIndex("IdUser");
+                    b.HasKey("IdUser", "IdPost");
 
                     b.ToTable("PostUser");
                 });
@@ -96,6 +88,7 @@ namespace Tryitter.Migrations
                     b.HasOne("Tryitter.Models.PostUser", "PostUsers")
                         .WithMany("Post")
                         .HasForeignKey("IdPost")
+                        .HasPrincipalKey("IdPost")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
