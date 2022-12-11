@@ -14,4 +14,9 @@ namespace Tryitter.Models
     [InverseProperty("Post"), JsonIgnore]
     public PostUser PostUsers  { get; set; } = null!;
   }
+
+  public class PostDTO
+  {
+    public string MessagePost  { get; set; } = null!;
+  }
 }

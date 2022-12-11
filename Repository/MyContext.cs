@@ -30,12 +30,15 @@ namespace Tryitter.Repository
             mb.Entity<PostUser>()
                 .HasMany(p => p.Post) 
                 .WithOne(u => u.PostUsers)
-                .HasForeignKey(p => p.IdPost);
+                .HasPrincipalKey(u => u.IdPost)
+                .HasForeignKey(u => u.IdPost)
+                .OnDelete(DeleteBehavior.Cascade);
 
             mb.Entity<PostUser>()
                 .HasOne(u => u.User) 
                 .WithMany(p => p.PostUsers)
-                .HasForeignKey(u => u.IdUser);
+                .HasForeignKey(p => p.IdUser)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
