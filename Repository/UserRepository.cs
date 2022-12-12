@@ -65,7 +65,7 @@ namespace Tryitter.Repository
       return user;
     }
 
-    public User GetUserWithEmail(string email)
+    public User GetUserByEmail(string email)
     {
       var user = _context.Users.FirstOrDefault(u => u.EmailUser == email);
 
