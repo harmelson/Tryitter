@@ -22,8 +22,6 @@ namespace Tryitter.Repository
 
         var postIdGetter = !_context.Post.Any() ? 0 : Convert.ToInt32(_context.Post.OrderBy(c => c.IdPost).Last().IdPost);
 
-        Console.WriteLine($"user id:{userId}");
-
         var post = _context.Post.Add( new Post {
           IdPost = postIdGetter +=1,
           MessagePost = messagePost.MessagePost,
