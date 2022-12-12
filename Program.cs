@@ -16,11 +16,12 @@ builder.Services.AddMvcCore();
 builder.Services.AddDbContext<MyContext>();
 builder.Services.AddScoped<MyContext>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<PostRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiagenda", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiTryitter", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
@@ -47,6 +48,15 @@ builder.Services.AddSwaggerGen(c =>
 }
 
 );
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("TryitterUser", policy =>
+    {
+        policy.RequireClaim("NameUser");
+        policy.RequireClaim("EmailUser");
+        policy.RequireClaim("IdUser");
+    });
+});
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
