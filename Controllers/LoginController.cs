@@ -38,8 +38,9 @@ namespace Tryitter.Controllers
 
         if (isAUser)
         {
+          User loggedUser = _repository.GetUserWithEmail(user.EmailUser);
           TokenGenerator tokenGenerator = new();
-          var newToken = tokenGenerator.Generate();
+          var newToken = tokenGenerator.Generate(loggedUser);
 
           return Ok(new { token = newToken});
         }
