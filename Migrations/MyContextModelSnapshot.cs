@@ -82,20 +82,20 @@ namespace Tryitter.Migrations
 
             modelBuilder.Entity("Tryitter.Models.Post", b =>
                 {
-                    b.HasOne("Tryitter.Models.PostUser", "PostUsers")
+                    b.HasOne("Tryitter.Models.PostUser", "PostUser")
                         .WithMany("Post")
                         .HasForeignKey("IdPost")
                         .HasPrincipalKey("IdPost")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PostUsers");
+                    b.Navigation("PostUser");
                 });
 
             modelBuilder.Entity("Tryitter.Models.PostUser", b =>
                 {
                     b.HasOne("Tryitter.Models.User", "User")
-                        .WithMany("PostUsers")
+                        .WithMany("PostUser")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -110,7 +110,7 @@ namespace Tryitter.Migrations
 
             modelBuilder.Entity("Tryitter.Models.User", b =>
                 {
-                    b.Navigation("PostUsers");
+                    b.Navigation("PostUser");
                 });
 #pragma warning restore 612, 618
         }

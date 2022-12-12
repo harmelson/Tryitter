@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Tryitter.Models;
+using Tryitter.Services;
 
 namespace Tryitter.Repository
 {
@@ -11,24 +12,45 @@ namespace Tryitter.Repository
       _context = context;
     }
 
-    public Post AddPost(PostDTO post)
+    public Post AddPost(PostDTO messagePost, string token)
     {
-      _context.Posts.Add( new Post {
-        // IdPost = _context.Posts.Last().IdPost +=1,
-        MessagePost = post.MessagePost
-      });
+      using var transaction = _context.Database.BeginTransaction();
+      try
+      {
+        var tokenHandler = new TokenGenerator();
+        int userId = Convert.ToInt32(tokenHandler.Decode(token)["nameid"]);
 
-      var lastPost = _context.Posts.Last();
+        var postIdGetter = !_context.Post.Any() ? 0 : Convert.ToInt32(_context.Post.OrderBy(c => c.IdPost).Last().IdPost);
 
-      return lastPost;
-      // _context.Users.Add(user);
-      // _context.SaveChanges();
-      // return new User{
-      //   IdUser = user.IdUser,
-      //   EmailUser = user.EmailUser,
-      //   NameUser = user.NameUser,
-      //   Password = user.Password,
-      // };
+        Console.WriteLine($"user id:{userId}");
+
+        var post = _context.Post.Add( new Post {
+          IdPost = postIdGetter +=1,
+          MessagePost = messagePost.MessagePost,
+          LikesPost = 0,
+          SharesPost = 0
+        });
+
+        _context.PostUser.Add( new PostUser {
+          IdPost = Convert.ToInt32(post.Property("IdPost").CurrentValue),
+          IdUser = userId
+        });
+
+        postIdGetter +=1;
+
+        _context.SaveChanges();
+        transaction.Commit();
+
+        var lastPost = _context.Post.OrderBy(c => c.IdPost).Last();
+
+        return lastPost;
+      }
+      catch (DbUpdateException exception)
+      {
+        transaction.Rollback();
+        throw exception;
+      }
+      
     }
   }
 }

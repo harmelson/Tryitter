@@ -5,7 +5,7 @@
 namespace Tryitter.Migrations
 {
     /// <inheritdoc />
-    public partial class Post : Migration
+    public partial class DbStart : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

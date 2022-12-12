@@ -65,6 +65,15 @@ namespace Tryitter.Repository
       return user;
     }
 
+    public User GetUserWithEmail(string email)
+    {
+      var user = _context.Users.FirstOrDefault(u => u.EmailUser == email);
+
+      if (user == null) return null!;
+
+      return user;
+    }
+
     public bool DeleteUser(int userId)
     {
       var user = _context.Users.FirstOrDefault(u => u.IdUser == userId);

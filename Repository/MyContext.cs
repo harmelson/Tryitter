@@ -8,8 +8,8 @@ namespace Tryitter.Repository
         public MyContext(DbContextOptions<MyContext> options) : base(options) {}
 
         // Adicionando models como DbSet
-        public DbSet<Post> Posts { get; set; } = null!;
-        public DbSet<Post> PostUsers { get; set; } = null!;
+        public DbSet<Post> Post { get; set; } = null!;
+        public DbSet<PostUser> PostUser { get; set; } = null!;
         public DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,14 +29,14 @@ namespace Tryitter.Repository
         {
             mb.Entity<PostUser>()
                 .HasMany(p => p.Post) 
-                .WithOne(u => u.PostUsers)
+                .WithOne(u => u.PostUser)
                 .HasPrincipalKey(u => u.IdPost)
                 .HasForeignKey(u => u.IdPost)
                 .OnDelete(DeleteBehavior.Cascade);
 
             mb.Entity<PostUser>()
                 .HasOne(u => u.User) 
-                .WithMany(p => p.PostUsers)
+                .WithMany(p => p.PostUser)
                 .HasForeignKey(p => p.IdUser)
                 .OnDelete(DeleteBehavior.Cascade);
         }

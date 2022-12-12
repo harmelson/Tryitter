@@ -16,12 +16,13 @@ namespace Tryitter.Controllers
     }
 
     [HttpPost]
-    [AllowAnonymous]
+    [Authorize]
     public ActionResult Add([FromBody] PostDTO post)
     {
       if (post.MessagePost.Length < 1 || post.MessagePost.Length > 280) return BadRequest("message post must have at least 1 and less than 280 characteres");
+      var token = Request.Headers.Authorization.ToString().Split(" ")[1];
 
-      return Created("",_repository.AddPost(post));
+      return Created("",_repository.AddPost(post, token));
     }
   }
 }
