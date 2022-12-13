@@ -77,5 +77,35 @@ namespace Tryitter.Repository
 
         return post;
     }
+
+    public bool DeletePost(int idPost, string token)
+    {
+      using var transaction = _context.Database.BeginTransaction();
+      try
+      {
+        var tokenHandler = new TokenGenerator();
+        int userId = Convert.ToInt32(tokenHandler.Decode(token)["nameid"]);
+
+        var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+        if (post == null) return false;
+        if (post!.PostUser.IdUser != userId) return false;
+
+        PostUser postUser = _context.PostUser.First(p => p.IdUser == userId);
+
+        _context.Post.Remove(post);
+        _context.PostUser.Remove(postUser);
+        
+        _context.SaveChanges();
+        transaction.Commit();
+
+        return true;
+        
+      }
+      catch (DbUpdateException exception)
+      {
+        transaction.Rollback();
+        throw exception;
+      }
+    }
   }
 }
