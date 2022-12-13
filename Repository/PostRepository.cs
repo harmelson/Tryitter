@@ -12,7 +12,7 @@ namespace Tryitter.Repository
       _context = context;
     }
 
-    public Post AddPost(PostDTO messagePost, string token)
+  public Post AddPost(PostDTO messagePost, string token)
     {
       using var transaction = _context.Database.BeginTransaction();
       try
@@ -24,9 +24,7 @@ namespace Tryitter.Repository
 
         var post = _context.Post.Add( new Post {
           IdPost = postIdGetter +=1,
-          MessagePost = messagePost.MessagePost,
-          LikesPost = 0,
-          SharesPost = 0
+          MessagePost = messagePost.MessagePost
         });
 
         _context.PostUser.Add( new PostUser {
@@ -50,5 +48,32 @@ namespace Tryitter.Repository
       }
       
     }
+    public PostWithIdUserDTO GetPost(int idPost)
+    {
+      var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+
+      return post == null
+      ? null!
+      : new PostWithIdUserDTO {
+        IdUser = post.PostUser.IdUser,
+        MessagePost = post.MessagePost,
+        LikesPost = post.LikesPost,
+        SharesPost = post.SharesPost,
+      };
+    }
+
+
   }
+
+// - Através do endpoint GET /post
+// O endpoint é acessível através do URL /post/{id};
+// O endpoint retorna o status http 200 com os dados do post informado;
+// O corpo da resposta tem o formato abaixo:
+// {
+//   "idUser": 1,
+//   "messagePost": "Hello, world",
+//   "likesPost": 1,
+//   "sharesPost": 1,
+// },
+
 }
