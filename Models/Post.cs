@@ -5,8 +5,7 @@ namespace Tryitter.Models
   using System.Text.Json.Serialization;
   public class Post
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    [Key, JsonIgnore]
     public int IdPost { get; set; }
     [MinLength(1), MaxLength(280)]
     public string MessagePost  { get; set; } = null!;
@@ -19,5 +18,10 @@ namespace Tryitter.Models
   public class PostDTO
   {
     public string MessagePost  { get; set; } = null!;
+  }
+
+  public class PostWithIdUserDTO : Post
+  {
+    public int IdUser { get; set; }
   }
 }
