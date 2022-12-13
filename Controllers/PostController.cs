@@ -44,7 +44,7 @@ namespace Tryitter.Controllers
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.UpdatePost(id, messagePost, token);
 
-      if(post == null) return BadRequest("Não é possível alterar um post que não foi feito pelo usuário logado");
+      if(post == null) return BadRequest("Unable to change a post that was not made by the logged user");
 
       return Ok(post);
     }
@@ -56,9 +56,9 @@ namespace Tryitter.Controllers
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.DeletePost(id, token);
 
-      if (post == false) return BadRequest("Não é possível deletar um post que não foi feito pelo usuário logado");
+      if (post == false) return BadRequest("post not found");
 
-      return Ok();
+      return Ok("post deleted");
     }
   }
 }
