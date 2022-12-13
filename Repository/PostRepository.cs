@@ -78,16 +78,4 @@ namespace Tryitter.Repository
         return post;
     }
   }
-
-// - Através do endpoint GET /post
-// O endpoint é acessível através do URL /post/{id};
-// O endpoint retorna o status http 200 com os dados do post informado;
-// O corpo da resposta tem o formato abaixo:
-// {
-//   "idUser": 1,
-//   "messagePost": "Hello, world",
-//   "likesPost": 1,
-//   "sharesPost": 1,
-// },
-
 }
