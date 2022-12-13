@@ -107,5 +107,26 @@ namespace Tryitter.Repository
         throw exception;
       }
     }
+  
+    public PostWithIdUserDTO[] GetAllPostsByUserId(int idUser)
+    {
+      var posts = _context.Post.Where(p => p.PostUser.IdUser == idUser).ToArray();
+
+      if (posts.Length == 0) return null!;
+
+      PostWithIdUserDTO[] postWithIdUserDTO = new PostWithIdUserDTO[posts.Length];
+      for (int i = 0; i < posts.Length; i++)
+      {
+        postWithIdUserDTO[i] = new PostWithIdUserDTO{
+          IdUser = idUser,
+          LikesPost = posts[i].LikesPost,
+          MessagePost = posts[i].MessagePost,
+          SharesPost = posts[i].SharesPost
+        };
+      }
+
+      return postWithIdUserDTO;
+    }
   }
+
 }
