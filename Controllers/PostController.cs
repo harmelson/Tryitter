@@ -35,5 +35,17 @@ namespace Tryitter.Controllers
 
       return Ok(post);
     }
+
+    [HttpPatch("{id}")]
+    [Authorize]
+    public ActionResult Update(int id, [FromBody] PostDTO messagePost)
+    {
+      var token = Request.Headers.Authorization.ToString().Split(" ")[1];
+      var post = _repository.UpdatePost(id, messagePost, token);
+
+      if(post == null) return BadRequest("Não é possível alterar um post que foi feito pelo usuário logado");
+
+      return Ok(post);
+    }
   }
 }
