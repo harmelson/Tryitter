@@ -40,6 +40,7 @@ namespace Tryitter.Controllers
     [Authorize]
     public ActionResult Update(int id, [FromBody] PostDTO messagePost)
     {
+      if (messagePost.MessagePost.Length < 1 || messagePost.MessagePost.Length > 280) return BadRequest("message post must have at least 1 and less than 280 characteres");
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.UpdatePost(id, messagePost, token);
 
