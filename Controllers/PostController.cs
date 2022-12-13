@@ -24,5 +24,16 @@ namespace Tryitter.Controllers
 
       return Created("",_repository.AddPost(post, token));
     }
+
+    [HttpGet("{id}")]
+    [Authorize]
+    public ActionResult GetById(int id)
+    {
+      var post = _repository.GetPost(id);
+
+      if (post == null) return NotFound("post not found");
+
+      return Ok(post);
+    }
   }
 }
