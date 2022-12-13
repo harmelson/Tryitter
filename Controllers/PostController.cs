@@ -44,9 +44,21 @@ namespace Tryitter.Controllers
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.UpdatePost(id, messagePost, token);
 
-      if(post == null) return BadRequest("Não é possível alterar um post que foi feito pelo usuário logado");
+      if(post == null) return BadRequest("Não é possível alterar um post que não foi feito pelo usuário logado");
 
       return Ok(post);
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public ActionResult Delete(int id)
+    {
+      var token = Request.Headers.Authorization.ToString().Split(" ")[1];
+      var post = _repository.DeletePost(id, token);
+
+      if (post == false) return BadRequest("Não é possível deletar um post que não foi feito pelo usuário logado");
+
+      return Ok();
     }
   }
 }
