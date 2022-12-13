@@ -12,7 +12,7 @@ namespace Tryitter.Repository
       _context = context;
     }
 
-    public Post AddPost(PostDTO messagePost, string token)
+  public Post AddPost(PostDTO messagePost, string token)
     {
       using var transaction = _context.Database.BeginTransaction();
       try
@@ -22,13 +22,9 @@ namespace Tryitter.Repository
 
         var postIdGetter = !_context.Post.Any() ? 0 : Convert.ToInt32(_context.Post.OrderBy(c => c.IdPost).Last().IdPost);
 
-        Console.WriteLine($"user id:{userId}");
-
         var post = _context.Post.Add( new Post {
           IdPost = postIdGetter +=1,
-          MessagePost = messagePost.MessagePost,
-          LikesPost = 0,
-          SharesPost = 0
+          MessagePost = messagePost.MessagePost
         });
 
         _context.PostUser.Add( new PostUser {
@@ -51,6 +47,65 @@ namespace Tryitter.Repository
         throw exception;
       }
       
+    }
+    public PostWithIdUserDTO GetPost(int idPost)
+    {
+      var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+
+      return post == null
+      ? null!
+      : new PostWithIdUserDTO {
+        IdUser = post.PostUser.IdUser,
+        MessagePost = post.MessagePost,
+        LikesPost = post.LikesPost,
+        SharesPost = post.SharesPost,
+      };
+    }
+
+    public Post UpdatePost(int idPost, PostDTO messagePost, string token)
+    {
+        var tokenHandler = new TokenGenerator();
+        int userId = Convert.ToInt32(tokenHandler.Decode(token)["nameid"]);
+
+        var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+
+        if (post == null) return null!;
+        if (post!.PostUser.IdUser != userId) return null!;
+
+        post.MessagePost = messagePost.MessagePost;
+        _context.SaveChanges();
+
+        return post;
+    }
+
+    public bool DeletePost(int idPost, string token)
+    {
+      using var transaction = _context.Database.BeginTransaction();
+      try
+      {
+        var tokenHandler = new TokenGenerator();
+        int userId = Convert.ToInt32(tokenHandler.Decode(token)["nameid"]);
+
+        var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+        if (post == null) return false;
+        if (post!.PostUser.IdUser != userId) return false;
+
+        PostUser postUser = _context.PostUser.First(p => p.IdUser == userId);
+
+        _context.Post.Remove(post);
+        _context.PostUser.Remove(postUser);
+        
+        _context.SaveChanges();
+        transaction.Commit();
+
+        return true;
+        
+      }
+      catch (DbUpdateException exception)
+      {
+        transaction.Rollback();
+        throw exception;
+      }
     }
   }
 }
