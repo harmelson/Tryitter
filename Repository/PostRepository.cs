@@ -62,7 +62,21 @@ namespace Tryitter.Repository
       };
     }
 
+    public Post UpdatePost(int idPost, PostDTO messagePost, string token)
+    {
+        var tokenHandler = new TokenGenerator();
+        int userId = Convert.ToInt32(tokenHandler.Decode(token)["nameid"]);
 
+        var post = _context.Post.Include(p => p.PostUser).FirstOrDefault(p => p.IdPost == idPost);
+
+        if (post == null) return null!;
+        if (post!.PostUser.IdUser != userId) return null!;
+
+        post.MessagePost = messagePost.MessagePost;
+        _context.SaveChanges();
+
+        return post;
+    }
   }
 
 // - Através do endpoint GET /post
