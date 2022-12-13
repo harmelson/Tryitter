@@ -19,7 +19,7 @@ namespace Tryitter.Controllers
     [Authorize]
     public ActionResult Add([FromBody] PostDTO post)
     {
-      if (post.MessagePost.Length < 1 || post.MessagePost.Length > 280) return BadRequest("message post must have at least 1 and less than 280 characteres");
+      if (post.MessagePost.Length < 1 || post.MessagePost.Length > 280) return BadRequest(new { message = "message post must have at least 1 and less than 280 characteres" });
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
 
       return Created("",_repository.AddPost(post, token));
@@ -31,7 +31,7 @@ namespace Tryitter.Controllers
     {
       var post = _repository.GetPost(id);
 
-      if (post == null) return NotFound("post not found");
+      if (post == null) return NotFound(new { message = "post not found" });
 
       return Ok(post);
     }
@@ -40,13 +40,13 @@ namespace Tryitter.Controllers
     [Authorize]
     public ActionResult Update(int id, [FromBody] PostDTO messagePost)
     {
-      if (messagePost.MessagePost.Length < 1 || messagePost.MessagePost.Length > 280) return BadRequest("message post must have at least 1 and less than 280 characteres");
+      if (messagePost.MessagePost.Length < 1 || messagePost.MessagePost.Length > 280) return BadRequest(new { message = "message post must have at least 1 and less than 280 characteres" });
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.UpdatePost(id, messagePost, token);
 
-      if(post == null) return BadRequest("Unable to change a post that was not made by the logged user");
+      if(post == null) return BadRequest(new { message ="Unable to change a post that was not made by the logged user" });
 
-      return Ok(post);
+      return Created("",post);
     }
 
     [HttpDelete("{id}")]
@@ -56,9 +56,21 @@ namespace Tryitter.Controllers
       var token = Request.Headers.Authorization.ToString().Split(" ")[1];
       var post = _repository.DeletePost(id, token);
 
-      if (post == false) return BadRequest("post not found");
+      if (post == false) return NotFound(new { message = "post not found" });
 
-      return Ok("post deleted");
+      return Ok(new { message = "user deleted"});
+    }
+
+
+    [HttpGet("user/{id}")]
+    // [Authorize]
+    public ActionResult GetAllPosts(int id)
+    {
+      var posts = _repository.GetAllPostsByUserId(id);
+
+      if (posts == null) return NotFound(new { message = "no posts found" });
+
+      return Ok(posts);
     }
   }
 }
