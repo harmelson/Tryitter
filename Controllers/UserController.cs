@@ -24,13 +24,13 @@ namespace Tryitter.Controllers
 
       if (user.EmailUser == "" || user.NameUser == "" || user.Password == "")
       {
-        return BadRequest("All fields must be passed");
+        return BadRequest(new { message = "All fields must be passed" });
       }
 
-      if (!regex.IsMatch(user.EmailUser)) return BadRequest("EmailUser must be valid");
-      if (user.EmailUser.Length < 8) return BadRequest("EmailUser must have at least 8 characters");
+      if (!regex.IsMatch(user.EmailUser)) return BadRequest(new { message = "EmailUser must be valid" });
+      if (user.EmailUser.Length < 8) return BadRequest(new { message = "EmailUser must have at least 8 characters"});
 
-      if (user.Password.Length < 8) return BadRequest("Password must have at least 8 characters");
+      if (user.Password.Length < 8) return BadRequest(new { message = "Password must have at least 8 characters" });
 
       return Created("",_repository.AddUser(user));
     }
@@ -43,13 +43,13 @@ namespace Tryitter.Controllers
 
       if (user.EmailUser == "" || user.NameUser == "" || user.Password == "")
       {
-        return BadRequest("All fields must be passed");
+        return BadRequest(new { message = "All fields must be passed" });
       }
 
-      if (!regex.IsMatch(user.EmailUser)) return BadRequest("EmailUser must be valid");
-      if (user.EmailUser.Length < 8) return BadRequest("EmailUser must have at least 8 characters");
+      if (!regex.IsMatch(user.EmailUser)) return BadRequest(new { message = "EmailUser must be valid" });
+      if (user.EmailUser.Length < 8) return BadRequest(new{ message = "EmailUser must have at least 8 characters" });
 
-      if (user.Password.Length < 8) return BadRequest("Password must have at least 8 characters");
+      if (user.Password.Length < 8) return BadRequest(new { message = "Password must have at least 8 characters" });
 
       return Ok(_repository.UpdateUser(user, id));
     }
@@ -60,7 +60,7 @@ namespace Tryitter.Controllers
     {
       var user = _repository.GetUser(id);
 
-      if (user == null) return NotFound("user not found");
+      if (user == null) return NotFound(new { message = "user not found" });
 
       return Ok(user);
     }
@@ -71,7 +71,7 @@ namespace Tryitter.Controllers
     {
       bool isDeleted = _repository.DeleteUser(id);
 
-      if (!isDeleted) return NotFound("user not found");
+      if (!isDeleted) return NotFound(new { message = "user not found" });
       
       return Ok(new { message= "user deleted"});
     }

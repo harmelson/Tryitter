@@ -427,7 +427,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 ### - Através do endpoint DELETE `/post`
 
 - O endpoint é acessível através do URL `/post/{id}`;
-- O endpoint retorna o status http `204`;
+- O endpoint retorna o status http `200`;
 - O corpo da resposta tem o formato abaixo:
   ```json
     {
