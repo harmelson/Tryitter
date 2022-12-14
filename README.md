@@ -72,7 +72,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
   Consulte o arquivo `docker-compose` para ter acesso às entradas para conexão de sua interface de banco de dados SQLServer. Recomendamos o `Azure Data Studio`.
 
   > Inicie a aplicação com os comandos `dotnet run` ou `dotnet watch`.
-  - Para executar a aplicação em sua plataforma de cliente da API ou explorá-la no Swagger na seguinte rota:
+  - Eles executam a aplicação em sua plataforma de cliente da API ou explorá-la no Swagger na seguinte rota:
     `https://localhost:7027/swagger/index.html`
 
 ---
