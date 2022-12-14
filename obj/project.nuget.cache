@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QTz37j9c9SEpuitFghcLPfvrmqD9i6CbRNm/xIu5IyorE6ZhvTkufUtg7gvgj3mWB53M/tm+q8uW97GCpsmtdw==",
+  "dgSpecHash": "JuZ30vL0kLxKYQEWbFPFpSv3/uCJ1l8022t6NKSBSOf742g8xXumVzwm8OD8RvP/umo+Ppcr/EoZhPfDqyeUxg==",
   "success": true,
-  "projectFilePath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj",
+  "projectFilePath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.csproj",
   "expectedPackageFiles": [
     "/home/harmel/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/home/harmel/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",

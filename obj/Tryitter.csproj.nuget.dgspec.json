@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj": {}
+    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.csproj": {}
   },
   "projects": {
-    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj": {
+    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj",
+        "projectUniqueName": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.csproj",
         "projectName": "Tryitter",
-        "projectPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj",
+        "projectPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.csproj",
         "packagesPath": "/home/harmel/.nuget/packages/",
-        "outputPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/obj/",
+        "outputPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/harmel/.nuget/NuGet/NuGet.Config"
