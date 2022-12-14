@@ -21,7 +21,7 @@ namespace Tryitter.Repository
                 var connectionString = Environment.GetEnvironmentVariable("Server=191.235.228.37;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true");
 
                 // Executamos o método UseSqlServer e passamos a connection string a ele
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer("Server=191.235.228.37;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true");
             }
         }
 
