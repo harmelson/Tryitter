@@ -18,10 +18,10 @@ namespace Tryitter.Repository
             if (!optionsBuilder.IsConfigured)
             {
                 // Buscamos o valor da connection string armazenada nas variáveis de ambiente
-                // var connectionString = Environment.GetEnvironmentVariable("DOTNET_CONNECTION_STRING");
+                var connectionString = Environment.GetEnvironmentVariable("DOTNET_CONNECTION_STRING");
 
                 // Executamos o método UseSqlServer e passamos a connection string a ele
-                optionsBuilder.UseSqlServer("Server=tcp:tryitter-db-api.database.windows.net,1433;Initial Catalog=tryitter-db-api;Persist Security Info=False;User ID=harmelson;Password=6026167Gh!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer(connectionString);
             }
         }
 
