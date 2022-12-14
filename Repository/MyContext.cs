@@ -18,7 +18,7 @@ namespace Tryitter.Repository
             if (!optionsBuilder.IsConfigured)
             {
                 // Buscamos o valor da connection string armazenada nas variáveis de ambiente
-                var connectionString = Environment.GetEnvironmentVariable("Server=127.0.0.1;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true");
+                var connectionString = Environment.GetEnvironmentVariable("Server=191.235.228.37;Database=tryitter_db;User=SA;Password=Password12!;TrustServerCertificate=true");
 
                 // Executamos o método UseSqlServer e passamos a connection string a ele
                 optionsBuilder.UseSqlServer(connectionString);
