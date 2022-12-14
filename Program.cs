@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Tryitter.Constants;
 using Tryitter.Repository;
-using QC = Microsoft.Data.SqlClient;
+// using QC = Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,10 +50,10 @@ builder.Services.AddSwaggerGen(c =>
 
 );
 
-using (var connection = new QC.SqlConnection("Server=tcp:tryitter-db-api.database.windows.net,1433;Initial Catalog=tryitter-db-api;Persist Security Info=False;User ID=harmelson;Password=6026167Gh!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))  
-			{  
-				connection.Open();
-			}  
+// using (var connection = new QC.SqlConnection("Server=tcp:tryitter-db-api.database.windows.net,1433;Initial Catalog=tryitter-db-api;Persist Security Info=False;User ID=harmelson;Password=6026167Gh!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))  
+// 			{  
+// 				connection.Open();
+// 			}  
 
 builder.Services.AddAuthorization(options =>
 {
