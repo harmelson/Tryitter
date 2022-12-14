@@ -48,7 +48,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
   
   Veja as orientações abaixo para iniciar a execução do projeto.
 
-  > Rode o serviço com o comando `docker-compose up -d`.
+  > Após clonar o repositório, rode o serviço com o comando `docker-compose up -d`.
   - Esse serviço irá inicializar um container chamado `tryitter`.
   - A partir daqui você pode rodar o container `tryitter` via CLI ou abri-lo no VS Code.
 
@@ -59,7 +59,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 ---
   
-  ✨ **Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o ambiente `.NET` na versão 6.0.0 ou superior instalado em seu computador.
+  ✨ **Dica:** Para rodar o projeto, obrigatoriamente você deve ter o ambiente `.NET` na versão 6.0.0 ou superior instalado em seu computador.
 
   ✨ **Dica:** Verifique se as portas 1433 (para execução do banco de dados), 5288 e 7027 (para execução da API) estão disponíveis no seu computador.
 
@@ -69,9 +69,9 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
   > Use os comandos `dotnet ef database update` para iniciar nosso banco de dados.
   - Ele inicializa e popula o banco de dados desenvolvido com a ORM Entity Framework. 
-  Consulte o arquivo `docker-compose` para consultar as entradas para conexão de sua interface de banco de dados SQLServer. Recomendamos o `Azure Data Studio`.
+  Consulte o arquivo `docker-compose` para ter acesso às entradas para conexão de sua interface de banco de dados SQLServer. Recomendamos o `Azure Data Studio`.
 
-  > Inicie a aplicação com os comandos `dotnet run`.
+  > Inicie a aplicação com os comandos `dotnet run` ou `dotnet watch`.
   - Para executar a aplicação em sua plataforma de cliente da API ou explorá-la no Swagger na seguinte rota:
     `https://localhost:7027/swagger/index.html`
 
@@ -160,9 +160,9 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 </details>
 
-<details><summary><strong>[link do Heroku/Azure] Deploy da API</strong></summary><br />
+<details><summary><strong> Deploy da API</strong></summary><br />
 
-Em construção
+No endereço : `tryitter-api.azurewebsites.net/`
 
 
 </details>
@@ -170,7 +170,7 @@ Em construção
 <details>
   <summary><strong> Mande seu feedback sobre o projeto!</strong></summary><br />
 
-Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude a melhorar este projeto! Seu feedback será super bem vindo!
+Se estiver a vontade, clone o repositório, execute, veja o deploy e nos ajude a melhorar este projeto! Seu feedback será super bem vindo!
 
 
 </details>
@@ -190,7 +190,7 @@ Se estiver a vontade, clone o repositório e, execute, veja o deploy e nos ajude
 
   Com a nossa API é permitido se cadastrar, consultar atualizar e deletar seus dados, além de  criar, consultar, atualizar e deletar os seus posts, e visualizar e interagir com os das outras pessoas estudantes.
 
-  Sejam desenvolvedores, profissionais de tecnologia e de quaisquer áreas, estamos juntos nos seus bugs na sua jornada pela Tryitter.
+  Sejam desenvolvedores, profissionais de tecnologia e de quaisquer áreas, estamos juntos ~~nos seus bugs~~ na sua jornada pela Tryitter.
   
 </details>
 

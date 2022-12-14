@@ -58,7 +58,7 @@ namespace Tryitter.Controllers
 
       if (post == false) return NotFound(new { message = "post not found" });
 
-      return Ok(new { message = "user deleted"});
+      return Ok(new { message = "post deleted"});
     }
 
 
