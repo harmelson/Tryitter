@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/calili_trybe/Área de Trabalho/teste/Tryitter.Test/Tryitter.Test.csproj": {}
+    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.Test/Tryitter.Test.csproj": {}
   },
   "projects": {
-    "/home/calili_trybe/Área de Trabalho/teste/Tryitter.Test/Tryitter.Test.csproj": {
+    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.Test/Tryitter.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/calili_trybe/Área de Trabalho/teste/Tryitter.Test/Tryitter.Test.csproj",
+        "projectUniqueName": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.Test/Tryitter.Test.csproj",
         "projectName": "Tryitter.Test",
-        "projectPath": "/home/calili_trybe/Área de Trabalho/teste/Tryitter.Test/Tryitter.Test.csproj",
-        "packagesPath": "/home/calili_trybe/.nuget/packages/",
-        "outputPath": "/home/calili_trybe/Área de Trabalho/teste/Tryitter.Test/obj/",
+        "projectPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.Test/Tryitter.Test.csproj",
+        "packagesPath": "/home/harmel/.nuget/packages/",
+        "outputPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/calili_trybe/.nuget/NuGet/NuGet.Config"
+          "/home/harmel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/calili_trybe/Área de Trabalho/teste/Tryitter/Tryitter.csproj": {
-                "projectPath": "/home/calili_trybe/Área de Trabalho/teste/Tryitter/Tryitter.csproj"
+              "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj": {
+                "projectPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj"
               }
             }
           }
@@ -90,26 +90,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/calili_trybe/Área de Trabalho/teste/Tryitter/Tryitter.csproj": {
+    "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/calili_trybe/Área de Trabalho/teste/Tryitter/Tryitter.csproj",
+        "projectUniqueName": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj",
         "projectName": "Tryitter",
-        "projectPath": "/home/calili_trybe/Área de Trabalho/teste/Tryitter/Tryitter.csproj",
-        "packagesPath": "/home/calili_trybe/.nuget/packages/",
-        "outputPath": "/home/calili_trybe/Área de Trabalho/teste/Tryitter/obj/",
+        "projectPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/Tryitter.csproj",
+        "packagesPath": "/home/harmel/.nuget/packages/",
+        "outputPath": "/home/harmel/Desktop/Trybe/csharp/desafio-final/Tryitter/Tryitter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/calili_trybe/.nuget/NuGet/NuGet.Config"
+          "/home/harmel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -177,6 +187,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -185,7 +209,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
