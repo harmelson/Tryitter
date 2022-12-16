@@ -162,7 +162,7 @@ Aqui você vai encontrar os detalhes de como está estruturado e foi desenvolvid
 
 <details><summary><strong> Deploy da API</strong></summary><br />
 
-No endereço : `app-tryitter.azurewebsites.net/`
+No endereço : `app-tryitter.azurewebsites.net/swagger`
 
 
 </details>
